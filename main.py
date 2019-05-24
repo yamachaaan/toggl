@@ -14,10 +14,10 @@ class Main():
             print('[WARN]:Please set the API token in config.json')
         toggl = Toggl()
         toggl.setAPIKey(API_TOKEN)
-        workspace_id = self.get_workspace_id(toggl)
-        self.get_project(toggl, workspace_id)
         args = argument.get_argument()
         if args.function.lower() == 'start':
+            workspace_id = self.get_workspace_id(toggl)
+            self.get_project(toggl, workspace_id)
             self.start(toggl)
         elif args.function.lower() == 'stop':
             self.stop(toggl)
